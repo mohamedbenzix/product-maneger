@@ -1,0 +1,175 @@
+.container > #inputs button, table#table tbody tr td button.update, table#table tbody tr td button.delete {
+  height: 46px;
+  border-radius: 20px;
+  font-size: 1rem;
+  background-color: #6600ff;
+  color: #f2f2f2;
+  letter-spacing: 1px;
+  -webkit-transition: letter-spacing 0.1s linear;
+  transition: letter-spacing 0.1s linear;
+}
+
+.container > #inputs button:hover, table#table tbody tr td button.update:hover, table#table tbody tr td button.delete:hover {
+  background-color: rgba(102, 0, 255, 0.6);
+  letter-spacing: 2px;
+}
+
+.container > #inputs button:active, table#table tbody tr td button.update:active, table#table tbody tr td button.delete:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: red;
+}
+
+:root {
+  font-size: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+input, button {
+  outline: none;
+  border: none;
+}
+
+body {
+  background-color: #0a0a0b;
+  color: #f2f2f2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px 150px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 40px 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 780px) {
+  body {
+    padding: 20px;
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.container > h1 {
+  font-weight: 600;
+}
+
+.container > p {
+  color: #a0a0a0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.container > #inputs {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.container > #inputs input {
+  background-color: #262626;
+  height: 46px;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #f2f2f2;
+  border: 1px solid transparent;
+}
+
+.container > #inputs input.invalid {
+  border-color: crimson;
+}
+
+.container > #inputs input:focus {
+  background-color: #0a0a0b;
+  border-color: #f2f2f2 !important;
+}
+
+.container > #inputs > div {
+  gap: 6px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container > #inputs > div input[type="number"] {
+  width: 20%;
+}
+
+.container > #inputs > div small {
+  font-size: 0.9rem;
+  background-color: crimson;
+  padding: 6px;
+}
+
+.container > #inputs > div small.success {
+  background-color: #0f8c00;
+}
+
+.container > #inputs button#searchByName {
+  width: 50%;
+}
+
+.container > #inputs button#searchByCategory {
+  width: 50%;
+}
+
+table#table {
+  margin-top: 20px;
+  /*thead*/
+}
+
+table#table tr th {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #6600ff;
+  padding: 6px 0;
+}
+
+table#table tbody tr td {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #262626;
+  font-size: .9rem;
+}
+
+table#table tbody tr td button.update, table#table tbody tr td button.delete {
+  padding: 6px 16px;
+}
+
+table#table tbody tr td button.update:hover, table#table tbody tr td button.delete:hover {
+  letter-spacing: 1px;
+}
+/*# sourceMappingURL=index.css.map */

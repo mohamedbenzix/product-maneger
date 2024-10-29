@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product maneger</title>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Product Maneger</h1>
+        <p>Html & css & JS project for beginners</p>
+        <div id="inputs">
+
+            <input type="text" placeholder="Product name*" id="name">
+
+            <div style="display:flex">
+
+                <input type="number" placeholder="Price*" id="price" min="0">
+                <input type="number" placeholder="Discount" id="discount" min="0">
+                <input type="number" placeholder="Taxes" id="taxes" min="0">
+                <input type="number" placeholder="Ads" id="ads" min="0">
+                <small>total: <span id="total">0</span></small>
+
+            </div>
+
+            <input type="number" placeholder="Count" id="count" min="1">
+            <input type="text" placeholder="Category*" id="category">
+
+            <button id="mainButton">Add product</button>
+
+            <input type="text" placeholder="Search" id="search">
+
+            <div style="display:flex;">
+                <button id="searchByName" onclick="search('name')">Search By Name</button>
+                <button id="searchByCategory" onclick="search('category')">Search By Category</button>
+            </div>
+
+            <button id="deleteAll">Delete All(0)</button>
+
+        </div>
+
+    </div>
+
+    <table id="table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Taxes</th>
+                <th>Ads</th>
+                <th>Total</th>
+                <th colspan="2">Control</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            
+
+        </tbody>
+
+    </table>
+    
+
+    <script src="./script/index.js"></script>
+</body>
+</html>

@@ -23,10 +23,20 @@ $clr-black-800: #262626;
     &:active {
         transform: scale(0.98);
     }
+    &.disabled {
+        cursor: not-allowed;
+        filter: grayscale(1);
+        opacity: 0.5;
+        &:hover {
+            letter-spacing: 1px;
+            background-color: $clr-magenta;
+        }
+        &:active { transform: scale(1) }
+    }
 }
 
-html::-webkit-scrollbar-thumb{
-    background-color: red;
+html{
+    scroll-behavior: smooth;
 }
 
 :root { font-size: 18px }
@@ -42,6 +52,10 @@ html::-webkit-scrollbar-thumb{
 input, button {
     outline: none;
     border: none;
+}
+button {
+    cursor: pointer;
+    user-select: none;
 }
 
 body {
@@ -123,6 +137,7 @@ body {
 }
 
 table#table {
+    border-spacing: 0;
     margin-top: 20px;
     /*thead*/ tr th {
         font-size: 1rem;
@@ -130,17 +145,46 @@ table#table {
         border-bottom: 3px solid $clr-magenta;
         padding: 6px 0;
     }
-    tbody tr td {
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid $clr-black-800;
-        font-size: .9rem;
-        button.update, button.delete {
-            @extend %btn-primary;
-            padding: 6px 16px;
-            &:hover {
-                letter-spacing: 1px;
+    tbody tr {
+        &.selected {
+            background-color: rgba($clr-white, .1);
+        }
+        td {
+            text-align: center;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1px solid $clr-black-800;
+            font-size: .9rem;
+            margin: 0;
+            button.update, button.delete {
+                @extend %btn-primary;
+                padding: 6px 16px;
+                &:hover {
+                    letter-spacing: 1px;
+                }
             }
         }
+    }
+}
+
+a#scrollToUp{
+    padding: 10px;
+    background-color: #ea00ff;
+    color: $clr-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    &:hover {
+        background-color: rgba(#ea00ff, .7);
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+    &.hide {
+        display: none;
     }
 }

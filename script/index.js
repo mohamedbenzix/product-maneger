@@ -118,8 +118,10 @@ $("#mainButton")[0].onclick = function(){
 
 $("#deleteAll")[0].onclick = function() {
 
-    products.splice(0);
-    showProducts();
+    if(editMode=="create"){
+        products.splice(0);
+        showProducts();
+    }
 
 }
 
@@ -157,7 +159,7 @@ function showProducts(){
                 <td>${product.taxes}</td>
                 <td>${product.ads}</td>
                 <td>${product.total}</td>
-                <td><button class="update" onclick="updateProduct(${i})">Update</button></td>
+                <td><button class="update" onclick="updateProduct(${i}, this.parentNode.parentNode)">Update</button></td>
                 <td><button class="delete" onclick="deleteProduct(${i})">Delete</button></td>
 
             </tr>
@@ -173,9 +175,11 @@ function showProducts(){
 
 }
 
-function updateProduct(productId) {
+function updateProduct(productId, htmlRow) {
 
-    const product = products[productId]
+    const product = products[productId];
+
+    //* fill inputs using product details
     $("#name")[0].value = product.name;
     $("#price")[0].value = product.price;
     $("#discount")[0].value = product.discount;
@@ -185,13 +189,29 @@ function updateProduct(productId) {
     total.innerText = product.total;
     product.total>0 ? total.parentNode.classList.add("success") : total.parentNode.classList.remove("success");
 
+    //* change style and text of main button
     $("#mainButton")[0].innerText = "Update product";
     $("#mainButton")[0].style.backgroundColor = "#007e11";
 
+    //* hide the count input
     $("#count")[0].style.display = "none";
+
+    //* change edit mode to update
     editMode = "update";
+
+    //* set poroduct id to value of temp variable
     temp = productId;
 
+    //* set deleteAll button to disabled
+    $("#deleteAll")[0].classList.add("disabled");
+
+    //* add class "selected" to htmlElement for change his styles and styles of buttons inside him
+    htmlRow.classList.add("selected");
+    htmlRow.lastElementChild.firstElementChild.classList.add("disabled");
+    console.log(Array.from(htmlRow.childNodes).at(-2).firstElementChild);
+    Array.from(htmlRow.children).at(-2).firstElementChild.classList.add("disabled");
+
+    //* scroll To up
     scroll({
         left: 0,
         top: 0,
@@ -203,9 +223,11 @@ function updateProduct(productId) {
 
 function deleteProduct(productId) {
 
-    products.splice(productId, 1);
-    showProducts();
-
+    if (!$("#table tbody tr")[productId].classList.contains("selected")){
+        products.splice(productId, 1);
+        showProducts();
+    }
+    
 }
 
 
@@ -242,6 +264,15 @@ function search(searchMood) {
         $("#table tbody")[0].innerHTML = htmlContent;
 
 }
+
+//* show/hide scroll to up button
+document.addEventListener("scroll", function() {
+    if (scrollY > 400) {
+        $("#scrollToUp")[0].classList.remove("hide");
+    } else {
+        $("#scrollToUp")[0].classList.add("hide");
+    }
+});
 
 
 onload = showProducts;

@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #262626;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6600ff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 0, 255, 0.7);
+}
+
 .container > #inputs button, table#table tbody tr td button.update, table#table tbody tr td button.delete {
   height: 46px;
   border-radius: 20px;
@@ -231,4 +248,3 @@ a#scrollToUp:active {
 a#scrollToUp.hide {
   display: none;
 }
-/*# sourceMappingURL=index.css.map */

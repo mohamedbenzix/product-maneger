@@ -101,6 +101,8 @@ $("#mainButton")[0].onclick = function(){
             showProducts();
             $("#count")[0].style.display = "block";
             
+            $("#deleteAll")[0].classList.remove("disabled");
+
             editMode = "create";
 
             $("#mainButton")[0].innerText = "Add product";
@@ -205,10 +207,16 @@ function updateProduct(productId, htmlRow) {
     //* set deleteAll button to disabled
     $("#deleteAll")[0].classList.add("disabled");
 
+
+    //* remove class "selected" from last htmlElement selected if user click in update another update button
+    if($("#table tbody tr.selected")[0]){
+        $("#table tbody tr.selected")[0].lastElementChild.firstElementChild.classList.remove("disabled");
+        Array.from($("#table tbody tr.selected")[0].children).at(-2).firstElementChild.classList.remove("disabled");
+        $("#table tbody tr.selected")[0].classList.remove("selected");
+    }
     //* add class "selected" to htmlElement for change his styles and styles of buttons inside him
     htmlRow.classList.add("selected");
     htmlRow.lastElementChild.firstElementChild.classList.add("disabled");
-    console.log(Array.from(htmlRow.childNodes).at(-2).firstElementChild);
     Array.from(htmlRow.children).at(-2).firstElementChild.classList.add("disabled");
 
     //* scroll To up

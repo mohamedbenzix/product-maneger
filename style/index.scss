@@ -8,6 +8,22 @@ $clr-dark-magenta: #150035;
 $clr-black-800: #262626;
 
 
+//* styling the scrollbar
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: $clr-black-800;
+}
+::-webkit-scrollbar-thumb {
+  background: $clr-magenta;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba($clr-magenta, .7);
+}
+
+
 %btn-primary {
     height: 46px;
     border-radius: 20px;
